@@ -9,6 +9,7 @@ export default defineConfig({
     tanstackStart({
       server: { preset: "static" },
       prerender: {
+        enabled: true,
         crawlLinks: true,
         routes: ["/", "/about", "/services", "/gallery", "/facilities", "/testimonials", "/booking", "/contact"],
       },
@@ -17,4 +18,9 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths(),
   ],
+  build: {
+    prerender: {
+      entries: ["*"],
+    },
+  },
 });
